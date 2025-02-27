@@ -20,8 +20,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchTickets = async () => {
-      const response = await fetch('https://ticket-assignment-system-backend-thiago-butignon.vercel.app/tickets');
+      const response = await fetch('/api/tickets');
       const data = await response.json();
+      console.log(data)
       setTickets(data);
     };
 
@@ -29,7 +30,7 @@ export default function Home() {
   }, []);
 
   const handleCreateTicket = async (newTicket: FormSchemaType) => {
-    const response = await fetch('https://ticket-assignment-system-backend-thiago-butignon.vercel.app/tickets', {
+    const response = await fetch('/api/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

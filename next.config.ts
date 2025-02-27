@@ -1,9 +1,13 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  env: {
-    NEXT_PUBLIC_BACKEND_URL: 'https://ticket-assignment-system-backend-thiago-butignon-jatot0d87.vercel.app',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://ticket-assignment-system-backend-thiago-butignon.vercel.app/:path*',
+      },
+    ];
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
