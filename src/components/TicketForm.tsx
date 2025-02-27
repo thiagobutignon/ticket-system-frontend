@@ -82,7 +82,7 @@ const TicketForm: React.FC<TicketFormProps> = ({ onSubmit }) => {
             <FormItem>
               <FormLabel>Deadline</FormLabel>
               <FormControl>
-                <Input type="date" {...field} />
+                <Input type="date" min={new Date().toISOString().slice(0, 10)} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
