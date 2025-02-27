@@ -1,9 +1,9 @@
 "use client";
 
-import TicketForm from '@/components/TicketForm';
+import TicketForm, { FormSchemaType } from '@/components/TicketForm';
 import TicketList from '@/components/TicketList';
 import { useState, useEffect } from 'react';
-import { z } from 'zod';
+
 
 interface Ticket {
   id: number;
@@ -13,19 +13,6 @@ interface Ticket {
   assignedTo?: string;
   skills?: string[];
 }
-
-const FormSchema = z.object({
-  title: z.string().min(3, {
-    message: "Title must be at least 3 characters.",
-  }),
-  description: z.string().min(3, {
-    message: "Description must be at least 3 characters.",
-  }),
-  deadline: z.date(),
-  skills: z.array(z.string()).optional(), // Optional skills for now
-});
-
-type FormSchemaType = z.infer<typeof FormSchema>;
 
 
 export default function Home() {

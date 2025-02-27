@@ -13,6 +13,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 
+export type FormSchemaType = z.infer<typeof FormSchema>;
+
 const FormSchema = z.object({
   title: z.string().min(3, {
     message: "Title must be at least 3 characters.",
